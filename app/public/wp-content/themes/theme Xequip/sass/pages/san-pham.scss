@@ -1,0 +1,87 @@
+
+
+@import "../abstracts/variables";
+
+
+.san-pham-body{
+
+    display: flex;
+    background-color: $color_test_1;
+
+    &__column_1{
+        background-color: $color_test_2;
+        width: 25rem;
+        margin: 1rem;
+        display: flex;
+        flex-direction: column;
+        &__Title{
+            background-color: $color_test_4;
+
+            &__txt{
+                font-size: 2rem;
+                font-weight: 600;    
+            }
+        }
+
+        &__Category{
+
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+
+            //&__item:hover ~ &__item__item{ ===> choose all class
+            //&__item:hover &__item__item{ ===> choose child
+            &__item:hover &__item__item{
+                visibility: visible;
+                opacity: 1;
+                height: 5rem;
+            }
+
+            &__item{
+                background-color: $color_test_6;
+                display: flex;
+                flex-direction: column;
+
+                font-size: 2rem;
+                font-weight: 400;
+                // height: 5rem;
+
+                // overflow: auto;
+                // display: table;
+                height: max-content;
+
+                &__item{
+                    background-color: $color_test_7;
+                    margin-left: 2rem;
+
+                    font-size: 1.5rem;
+                    font-weight: 400;
+
+                    height: 0rem;
+                    opacity: 0; // invisible
+
+                    // visibility: hidden; // invisible
+                    // display: table-row;
+
+                    transition: opacity 0.5s, height 0.5s;
+                }
+            }
+        }
+    }
+    &__column_2{
+        background-color: $color_test_3;
+        margin: 1rem;
+
+        flex: 1;
+    }
+}
+
+// .san-pham-body__column_1__Category__item:focus .san-pham-body__column_1__Category__item__item,
+// .san-pham-body__column_1__Category__item:focus-within .san-pham-body__column_1__Category__item__item,
+// .san-pham-body__column_1__Category__item:hover .san-pham-body__column_1__Category__item__item{
+//     visibility: visible;
+//     opacity: 1;
+//     z-index: 1;
+//     transform: translate(0);
+//     transition-delay: 0s, 0s, 0.3s;
+// }

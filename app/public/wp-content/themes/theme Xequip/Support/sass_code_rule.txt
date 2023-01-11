@@ -1,0 +1,6 @@
+use % - vh - vw (not px)
+use max-width (not width)
+
+use rem (not px)
+
+image: % + max-width

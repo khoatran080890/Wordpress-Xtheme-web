@@ -1,0 +1,28 @@
+
+
+
+
+
+
+.column_2_fixedcolumn1{
+    display: flex;
+    background-color: $color_test_1;
+
+    &__column_1{
+        background-color: $color_test_2;
+        width: 25rem;
+        margin: 1rem;
+
+        @include response(phone){
+            width: 0rem;
+            margin: 0rem;
+        }
+    }
+        
+    &__column_2{
+        background-color: $color_test_3;
+        margin: 1rem;
+
+        flex: 1;
+    }
+}

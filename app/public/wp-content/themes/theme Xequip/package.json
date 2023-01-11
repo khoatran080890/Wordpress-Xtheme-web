@@ -1,0 +1,26 @@
+{
+  "name": "theme-xequip",
+  "version": "1.0.0",
+  "description": "theme xequip package.json",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w",
+    "start": "wp-scripts start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/khoatran080890/Web-Xequip.git"
+  },
+  "author": "Khoa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khoatran080890/Web-Xequip/issues"
+  },
+  "homepage": "https://github.com/khoatran080890/Web-Xequip#readme",
+  "devDependencies": {
+    "node-sass": "^8.0.0"
+  },
+  "dependencies": {
+    "@wordpress/scripts": "^25.1.0"
+  }
+}

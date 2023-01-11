@@ -1,0 +1,42 @@
+Setup new theme
+stye.css 
+(/* 
+theme name: SEquip theme
+author: Luci
+version: 1.0.0
+*/)
+screenshot.jpg
+index.php
+
+
+sourtree - github
+token - theme
+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
+token - web
+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
+git remote set-url origin https://<token>@github.com/<username>/<repo>
+
+
+download nodejs
+npm init
+=> package.json
+npm install node-sass --save-dev
+
+
+
+npm install (use to install all in package.json)
+npm install jquery (download)
+npm i @wordpress/scripts
+npm unistall jquery (delete)
+
+"compile:sass": "node-sass sass/main.scss css/style.css -w" (in package.json -> compile scss to css) (-w to continuously compile)
+npm run compile:sass
+"start": "wp-scripts start"
+npm run start
+
+npm install live-server -g
+
+
+support debug php
+https://viblo.asia/p/toi-da-debug-code-php-nhu-nao-RnB5pWA7lPG
+link support debug: C:\Users\Luci\AppData\Roaming\Local\run\ZdEiX8az8\conf\php\php.ini

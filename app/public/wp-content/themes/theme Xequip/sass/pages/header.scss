@@ -1,0 +1,104 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+
+
+.header{
+    width: 100%;
+    height: 10rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    
+
+    @include response (phone){
+        height: 32.5rem;
+        // height: max-content;
+        flex-direction: column;
+    }
+
+    
+
+    &__logo{
+
+        background-color: $color_test_1;
+    
+        max-height: 100%;
+        // make not smaller when scale screen
+        min-width: fit-content;
+
+        // agign center
+        display: flex;
+        justify-content: center;
+
+
+        @include response (phone){
+            max-height: 10rem;
+        }
+
+        &__img{
+            background-color: $color_test_2;
+            padding: 5px;
+
+            // origin size
+            object-fit: contain;
+            max-height: 100%;
+            max-width: 100%;
+
+        }
+    }
+
+    &__category{
+
+        background-color: $color_test_3;
+
+        padding: 0.5rem;
+
+        display: flex;
+        flex-direction: row;
+
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        
+        @include response (phone){
+            // max-height: 5rem;
+            flex-direction: column;
+            height: max-content;
+        }
+
+        &__txt{
+            height: 4.5rem;
+            padding: 0.5rem;
+
+            font-size: 2rem;
+
+            min-width: fit-content;
+            
+            list-style-type: none; // remove dot in li
+            // align-self: center;
+
+            border-right: 0.1rem solid rgba(255, 255, 255, 1);
+            &:last-child{
+                border-right: 0;
+            }
+
+            @include response (phone){
+                border-right: 0;
+            }
+        }
+
+        &__boldtxt{
+
+            font-weight: 700;
+            color: blue;
+        }
+    }
+
+    
+}
+
+
+
+

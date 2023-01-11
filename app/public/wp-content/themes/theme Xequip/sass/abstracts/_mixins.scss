@@ -1,0 +1,33 @@
+
+
+
+
+/*
+0 - 600px: phone
+600 - 900px: tablet potrait
+900 - 1200px: tablet landscape
+1200 - 1800px: PC
+1800px + : Big PC
+*/
+
+
+@mixin response ($input-device){
+    @if $input-device == phone {
+        @media (max-width: 37.5rem) { @content; }
+    }
+    @if $input-device == tablet-potrait {
+        @media (max-width: 56.25rem) { @content; }
+    }
+    @if $input-device == tablet-landscape {
+        @media (max-width: 75rem) { @content; }
+    }
+    @if $input-device == desktop-big {
+        @media (max-width: 112.5rem) { @content; }
+    }
+}
+
+@mixin atSmall {
+    @media (min-width: 56.25rem) {
+        @content;
+    }
+}

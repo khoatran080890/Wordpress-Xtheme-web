@@ -1,0 +1,68 @@
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+@import "base/animation";
+@import "base/base";
+@import "base/utilities";
+@import "base/wordpress-core";
+@import "base/icon";
+
+@import "pages/header";
+@import "pages/home";
+@import "pages/san-pham";
+@import "pages/tin-tuc";
+
+@import "layout/layout";
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html{
+    font-size: 62.5%; // 10px
+
+    @include response(desktop-big){
+        font-size: 75%;
+    }
+    @include response(tablet-landscape){
+        font-size: 56.5%;   
+    }
+    @include response(tablet-potrait){
+        font-size: 50%;
+    }
+    @include response(phone){
+        font-size: 50%;
+    }
+    
+}
+
+body {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: 400;
+
+    line-height: 2;
+    color: black;
+
+    margin-left: 2rem;
+    margin-top: 1rem;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+    
+// remove underline button <a>
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }
+
+
+
+
+
+    
