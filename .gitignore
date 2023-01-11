@@ -5,35 +5,35 @@
 #
 # Note: if you want to stage/commit WP core files
 # you can delete this whole section/until Configuration.
-/app/wp-admin/
-/app/wp-content/index.php
-/app/wp-content/languages
-/app/wp-content/plugins/index.php
-/app/wp-content/themes/index.php
-/app/wp-includes/
-/app/index.php
-/app/license.txt
-/app/readme.html
-/app/wp-*.php
-/app/xmlrpc.php
+/app/public/wp-admin/
+/app/public/wp-content/index.php
+/app/public/wp-content/languages
+/app/public/wp-content/plugins/index.php
+/app/public/wp-content/themes/index.php
+/app/public/wp-includes/
+/app/public/index.php
+/app/public/license.txt
+/app/public/readme.html
+/app/public/wp-*.php
+/app/public/xmlrpc.php
 
 # Configuration
-/appwp-config.php
+/app/public/wp-config.php
 
 # Example themes
-/app/wp-content/themes/twenty*/
+/app/public/wp-content/themes/twenty*/
 
 # Example plugin
-/app/wp-content/plugins/hello.php
+/app/public/wp-content/plugins/hello.php
 
 # Uploads
-/app/wp-content/uploads/
+/app/public/wp-content/uploads/
 
 # Log files
 *.log
 
 # htaccess
-/app/.htaccess
+/app/public/.htaccess
 
 # All plugins
 #
