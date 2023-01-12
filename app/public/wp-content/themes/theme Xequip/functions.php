@@ -4,19 +4,19 @@
 <?php
 
 
-// /*
-//     =======================================
-//     Support Function
-//     =======================================
-// */
-// function get_id_by_slug($page_slug) { // get id from slug
-//     $page = get_page_by_path($page_slug);
-//     if ($page) {
-//         return $page->ID;
-//     } else {
-//         return null;
-//     }
-// } 
+/*
+    =======================================
+    Support Function
+    =======================================
+*/
+function get_id_by_slug($page_slug) { // get id from slug
+    $page = get_page_by_path($page_slug);
+    if ($page) {
+        return $page->ID;
+    } else {
+        return null;
+    }
+} 
 
 // function get_custom_breadcrumbs($style) {
 //     if ($style == "parent"){
