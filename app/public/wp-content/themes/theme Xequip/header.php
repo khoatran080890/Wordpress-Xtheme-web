@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
     <head>
-        <h1> THIS IS HEADER </h1>
+        <h1> THIS IS HEADER header.php</h1>
         <meta charset="<?php bloginfo('charset'); ?>"> <!-- ??? -->
         <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- for more resposive design -->
         <script src="https://kit.fontawesome.com/07f2da793f.js" crossorigin="anonymous"></script> <!-- add font from fontawesome -->

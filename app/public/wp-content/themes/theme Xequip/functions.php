@@ -18,77 +18,77 @@ function get_id_by_slug($page_slug) { // get id from slug
     }
 } 
 
-// function get_custom_breadcrumbs($style) {
-//     if ($style == "parent"){
-//         global $post;
-//         // var_dump($post->ancestors);
-//         // var_dump($post->parent);
-//         // debug_print_backtrace();
+function get_custom_breadcrumbs($style) {
+    if ($style == "parent"){
+        global $post;
+        // var_dump($post->ancestors);
+        // var_dump($post->parent);
+        // debug_print_backtrace();
 
-//         // $ancestors = $post->ancestors;
-//         // $parent = $post->parent;
-//         $ancestors = get_post_ancestors($post);
-//         $parent = get_post_parent($post);
+        // $ancestors = $post->ancestors;
+        // $parent = $post->parent;
+        $ancestors = get_post_ancestors($post);
+        $parent = get_post_parent($post);
 
-//         // var_dump($ancestors);
-//         // var_dump($parent);
+        // var_dump($ancestors);
+        // var_dump($parent);
 
-//         if (is_front_page()) {
+        if (is_front_page()) {
             
-//             echo get_the_title(); 
-//         } 
-//         else {
-//             echo '<a href="'.home_url().'">Home</a>&nbsp;&nbsp;&#187;&nbsp;&nbsp;';
-//             //Check if page has ancestors - if only one parent exists, this will be an empty array
-//             if($ancestors){
-//                 //Reverse the array so out put starts at the top of the hierarchy
-//                 $parents = array_reverse($ancestors);
+            echo get_the_title(); 
+        } 
+        else {
+            echo '<a href="'.home_url().'">Home</a>&nbsp;&nbsp;&#187;&nbsp;&nbsp;';
+            //Check if page has ancestors - if only one parent exists, this will be an empty array
+            if($ancestors){
+                //Reverse the array so out put starts at the top of the hierarchy
+                $parents = array_reverse($ancestors);
 
-//                 // echo 'ancestor';
-//                 // var_dump(get_page_link($parent));
-//                 // var_dump(get_the_title($parent));
+                // echo 'ancestor';
+                // var_dump(get_page_link($parent));
+                // var_dump(get_the_title($parent));
 
-//                 foreach($parents as $parent){
-//                     echo '<a href="'.get_page_link($parent).'">'.get_the_title($parent).'</a>&nbsp;&nbsp;&#187;&nbsp;&nbsp;';
-//                 }
-//             }
-//             else if($parent){
+                foreach($parents as $parent){
+                    echo '<a href="'.get_page_link($parent).'">'.get_the_title($parent).'</a>&nbsp;&nbsp;&#187;&nbsp;&nbsp;';
+                }
+            }
+            else if($parent){
 
-//                 // echo 'parent';
-//                 // var_dump(get_page_link($parent));
-//                 // var_dump(get_the_title($parent));
+                // echo 'parent';
+                // var_dump(get_page_link($parent));
+                // var_dump(get_the_title($parent));
 
-//                 //Deal with single parent situation
-//                 echo '<a href="'.get_page_link($parent).'">'.get_the_title($parent).'</a>&nbsp;';
-//             }
-//             //Present current title as simple text, no link
+                //Deal with single parent situation
+                echo '<a href="'.get_page_link($parent).'">'.get_the_title($parent).'</a>&nbsp;';
+            }
+            //Present current title as simple text, no link
 
-//             // echo 'parent';
-//             // var_dump(get_the_title());
+            // echo 'parent';
+            // var_dump(get_the_title());
 
-//             echo get_the_title();
-//         }
-//     }
-//     if ($style == "category"){
-//         echo '<a href="'.home_url().'" rel="nofollow">Home</a>';
-//         if (is_category() || is_single()) {
-//             echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
-//             the_category(' &bull; ');
-//                 if (is_single()) {
-//                     echo " &nbsp;&nbsp;&#187;&nbsp;&nbsp; ";
-//                     the_title();
-//                 }
-//         } elseif (is_page()) {
-//             echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
-//             echo the_title();
-//         } elseif (is_search()) {
-//             echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;Search Results for... ";
-//             echo '"<em>';
-//             echo the_search_query();
-//             echo '</em>"';
-//         }
-//     }
-// }
+            echo get_the_title();
+        }
+    }
+    if ($style == "category"){
+        echo '<a href="'.home_url().'" rel="nofollow">Home</a>';
+        if (is_category() || is_single()) {
+            echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
+            the_category(' &bull; ');
+                if (is_single()) {
+                    echo " &nbsp;&nbsp;&#187;&nbsp;&nbsp; ";
+                    the_title();
+                }
+        } elseif (is_page()) {
+            echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
+            echo the_title();
+        } elseif (is_search()) {
+            echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;Search Results for... ";
+            echo '"<em>';
+            echo the_search_query();
+            echo '</em>"';
+        }
+    }
+}
 
 
 

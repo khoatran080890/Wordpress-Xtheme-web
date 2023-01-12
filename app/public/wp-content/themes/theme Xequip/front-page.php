@@ -1,5 +1,5 @@
 <!-- for main page - http://xequip.local/-->
-<h1> HOME PAGE - FRONT PAGE </h1>
+<h1> HOME PAGE - FRONT PAGE front-page.php</h1>
 
 <?php
     get_header(); ?>
