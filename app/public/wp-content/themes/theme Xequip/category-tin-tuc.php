@@ -1,4 +1,7 @@
-<h1> THIS IS FOR Index page index.php</h1>
+
+
+<h1> THIS IS FOR CATEGORY TIN TỨC category-tin-tuc.php</h1>
+<h1> make the same as index.php - exept breadscrum </h1>
 
 <!-- for child page -->
 
@@ -35,7 +38,7 @@
     <hr>
     <hr>
     <hr>
-    <div class="breadcrumb"><?php get_custom_breadcrumbs(Breadscrum_type::parent); ?></div> <!-- function.php -->
+    <div class="breadcrumb"><?php get_custom_breadcrumbs("category"); ?></div> <!-- function.php -->
 
     
     <div class="column_2_fixedcolumn1"> 

@@ -28,7 +28,7 @@
 <hr>
 <hr>
 <hr>
-<div class="breadcrumb"><?php get_custom_breadcrumbs("parent"); ?></div> <!-- function.php -->
+<div class="breadcrumb"><?php get_custom_breadcrumbs(Breadscrum_type::parent); ?></div> <!-- function.php -->
 
 <!-- BODY -->
 

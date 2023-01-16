@@ -18,8 +18,14 @@ function get_id_by_slug($page_slug) { // get id from slug
     }
 } 
 
+enum Breadscrum_type
+{
+    case parent;
+    case category;
+}
 function get_custom_breadcrumbs($style) {
-    if ($style == "parent"){
+    // if ($style == "parent"){
+    if ($style == Breadscrum_type::parent){
         global $post;
         // var_dump($post->ancestors);
         // var_dump($post->parent);
@@ -64,12 +70,12 @@ function get_custom_breadcrumbs($style) {
             //Present current title as simple text, no link
 
             // echo 'parent';
-            // var_dump(get_the_title());
 
-            echo get_the_title();
+            // echo get_the_title();
+            echo single_post_title(); // get_the_title: return most recent post => use single_post_title
         }
     }
-    if ($style == "category"){
+    if ($style == Breadscrum_type::category){
         echo '<a href="'.home_url().'" rel="nofollow">Home</a>';
         if (is_category() || is_single()) {
             echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
