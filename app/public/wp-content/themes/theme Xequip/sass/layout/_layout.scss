@@ -26,3 +26,22 @@
         flex: 1;
     }
 }
+
+.column_2_even{
+    display: flex;
+    align-items: flex-start;
+    background-color: $color_test_1;
+
+    &__column_1{
+        background-color: $color_test_2;
+        width: 100%;
+        margin: 1rem;
+    }
+
+        
+    &__column_2{
+        background-color: $color_test_3;
+        width: 100%;
+        margin: 1rem;
+    }
+}

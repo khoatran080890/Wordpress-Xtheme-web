@@ -20,6 +20,10 @@
         <button class="home-slideshow__btn-back" id="home-slideshow-btn-back" onclick="slideshow_add(-1)">Back</button>
         <button class="home-slideshow__btn-next" id="home-slideshow-btn-next" onclick="slideshow_add(1)">Next</button>
     </div>
+    <span class="enter__2">
+    <div class="center">
+        <div class="home-title"><h1> Best Seller </h1></div>
+    </div>
 
     <h1>PAGE</h1>
     <?php
