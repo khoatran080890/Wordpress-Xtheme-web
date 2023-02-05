@@ -108,6 +108,15 @@
   .content h6 {
     font-size: 1.15rem; } }
 
+.hyperlink-li li {
+  margin-left: 3rem;
+  padding: 0 1rem;
+  font-size: 1.5rem;
+  border-bottom: 1px dotted #DEDEDE; }
+
+.hyperlink-li li:last-child {
+  border-bottom: none; }
+
 .tab {
   display: inline-block;
   margin-left: 40px; }
@@ -124,9 +133,27 @@
   display: inline-block;
   margin-top: 30px; }
 
+.break-line {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 2.5rem 0; }
+
 .center {
   display: flex;
   justify-content: center; }
+
+.img-fixheight {
+  height: 50px; }
+
+.img-fixwidth {
+  height: 400px;
+  display: flex;
+  justify-content: center; }
+
+.wp-post-image {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain; }
 
 .page-numbers {
   font-size: 2rem;

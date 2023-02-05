@@ -24,6 +24,11 @@
     }
 }
 
+.break-line {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 2.5rem 0;
+  }
 
 
 
@@ -31,3 +36,17 @@
     display: flex;
     justify-content: center;
 }
+
+
+
+
+.img-fixheight{
+    height: 50px;
+}
+
+.img-fixwidth{
+    height: 400px;
+    display: flex;
+    justify-content: center;
+}
+

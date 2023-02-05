@@ -15,16 +15,29 @@
 
         <?php
             $query_newestpost = new WP_Query(array(
-                'posts_per_page' => '-1',
                 'post_type' => 'logo-partner',
+                'posts_per_page' => '-1',
+                
+                // case orderby field
+                // 'meta_key' => 'field_name',
+                // 'orderby' => 'meta_value_num',
+                // 'meta_query' => array(
+                //     array(
+                //         'key' => 'field_name',
+                //         'compare' => '>=',
+                //         'value' => date('Ymd'),
+                //         'type' => 'numeric',
+                //     ),
+                // ),
                 'orderby' => 'post_date',
                 'order' => 'ASC', // DESC
+
             ));
             while($query_newestpost->have_posts()){
                 $query_newestpost->the_post(); 
                     $field_img = get_field('field-icon');
                     ?>
-                    <img class="footer__logo-partner" src="<?php echo $field_img['url']; ?>" alt="<?php echo $field_img['alt']; ?>" />
+                    <img class="footer__logo-partner" src="<?php echo $field_img['sizes']['img_100x100']; ?>" alt="<?php echo $field_img['alt']; ?>" />
                 <?php
             }
             wp_reset_postdata(); 

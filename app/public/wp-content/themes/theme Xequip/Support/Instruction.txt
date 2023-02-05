@@ -26,7 +26,7 @@ npm install node-sass --save-dev
 
 npm install (use to install all in package.json)
 npm install jquery (download)
-npm i @wordpress/scripts
+npm i @wordpress/scripts (something related to javasccript???)
 npm unistall jquery (delete)
 
 "compile:sass": "node-sass sass/main.scss css/style.css -w" (in package.json -> compile scss to css) (-w to continuously compile)

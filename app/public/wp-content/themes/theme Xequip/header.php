@@ -44,7 +44,8 @@
                 <div class="header__category__txt <?php if(is_page('san-pham')
                 or wp_get_post_parent_id(get_the_ID()) == get_id_by_slug('san-pham')) echo 'header__category__boldtxt' ?>"><a href="<?php echo site_url('/san-pham'); ?>">Sản phẩm</a></div>
                 <div class="header__category__txt <?php if(is_page('tin-tuc')
-                or wp_get_post_parent_id(get_the_ID()) == get_id_by_slug('tin-tuc')) echo 'header__category__boldtxt' ?>"><a href="<?php echo site_url('/tin-tuc'); ?>">Tin tức</a></div>
+                or wp_get_post_parent_id(get_the_ID()) == get_id_by_slug('tin-tuc')
+                or is_home()) echo 'header__category__boldtxt' ?>"><a href="<?php echo site_url('/tin-tuc'); ?>">Tin tức</a></div>
                 <div class="header__category__txt <?php if(is_page('cau-hoi-thuong-gap')
                 or wp_get_post_parent_id(get_the_ID()) == get_id_by_slug('cau-hoi-thuong-gap')) echo 'header__category__boldtxt' ?>"><a href="<?php echo site_url('/cau-hoi-thuong-gap'); ?>">Câu hỏi thường gặp</a></div>
                 <div class="header__category__txt <?php if(is_page('lien-he')

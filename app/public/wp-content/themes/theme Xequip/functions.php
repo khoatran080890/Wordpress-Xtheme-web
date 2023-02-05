@@ -128,6 +128,24 @@ function get_custom_breadcrumbs($style) {
 // }
 // add_filter('wp_list_pages', 'wp_list_pages_filter');
 
+
+/*
+    =======================================
+    Support function - core Wordpress
+    =======================================
+*/
+function Support_query($query){
+    // echo 'A' . !is_admin();
+    // echo 'B' . is_post_type_archive('logo-partner');
+    // echo 'C' . (!is_admin() and is_post_type_archive('logo-partner'));
+    // echo 'D' . get_post_type();
+    // echo 'E' . $query->get('post_type');
+    if (!is_admin() AND $query->get('post_type') == 'logo-partner'/* AND $query->is_main_query()*/){
+        $query->set('posts_per_page', '-1');
+    }
+}
+add_action('pre_get_posts', 'Support_query');
+
 /*
     =======================================
     Load file
@@ -143,12 +161,42 @@ function Load_file(){
 }
 function Function_support(){
     register_nav_menu('home_tab_manager','Home Tab Manager'); // auto add theme tab - lesson 20: navigation
-    add_theme_support( 'title-tag'); // add tab title browser
+    add_theme_support('title-tag'); // add tab title browser
+    add_theme_support('post-thumbnails'); // add featured image for post and customized post
+    add_image_size('img_100x100', 100, 100, true);
+    add_image_size('img_960x540', 960, 540, true);
 }
 
 // load files
 add_action( 'wp_enqueue_scripts', 'Load_file');
 add_action( 'after_setup_theme', 'Function_support');
+
+
+?>
+
+<?php
+
+function _show_newest_post($arg){
+    ?>
+    <div class="column_2_fixedcolumn1__column_1">
+        <h3>Newest Post</h3>
+        <?php 
+            $query_newestpost = new WP_Query(array(
+                'posts_per_page' => '3',
+                'post_type' => 'post'
+            ));
+            while($query_newestpost->have_posts()){
+                $query_newestpost->the_post(); ?>
+                    <h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+                    <p><?php the_time('Y/n/j'); ?></p>
+                    <p><?php echo wp_trim_words(get_the_content(), $arg['post_exerpt_trim']) ?> <a href="<?php the_permalink() ?>">Read more</a></p>
+                <?php
+            }
+            wp_reset_postdata(); 
+        ?>
+    </div>
+    <?php
+}
 
 
 ?>

@@ -14,7 +14,7 @@
 
         $check_isparentpage = !$current_parent_id;
         // fix info
-        $post_exerpt_trim = 25;
+        
         // query
         
         
@@ -31,6 +31,7 @@
             <?php
         }
         get_header();
+        
     ?>
     <hr>
     <hr>
@@ -39,28 +40,18 @@
 
     
     <div class="column_2_fixedcolumn1"> 
-        <div class="column_2_fixedcolumn1__column_1">
-            <h3>Newest Post</h3>
-            <?php 
-                $query_newestpost = new WP_Query(array(
-                    'posts_per_page' => '3',
-                    'post_type' => 'post'
-                ));
-                while($query_newestpost->have_posts()){
-                    $query_newestpost->the_post(); ?>
-                        <h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
-                        <p><?php the_time('Y/n/j'); ?></p>
-                        <p><?php echo wp_trim_words(get_the_content(), $post_exerpt_trim) ?> <a href="<?php the_permalink() ?>">Read more</a></p>
-                    <?php
-                }
-                wp_reset_postdata(); 
-            ?>
-        </div>
+        <?php
+            _show_newest_post(array(
+                'post_exerpt_trim' => 25,
+            ));
+        ?>
         <div class="column_2_fixedcolumn1__column_2">
             <?php
                 $query_post = new WP_Query(array(
                     'post_type'=>'post',
                     'posts_per_page' => 2,
+                    // for custom paginate_links - get page number (from url) -> query data
+                    // 1: mean when have no page number (from url) => get 1
                     'paged' => get_query_var('paged') ? get_query_var('paged') : 1) 
                 ); 
                 
@@ -78,14 +69,13 @@
 
                     $total_pages = $query_post->max_num_pages;
                     if ($total_pages > 1){
-                        $current_page = max(1, get_query_var('paged'));
-
+                        // $current_page = max(1, get_query_var('paged'));
                         ?>
                         <div class="paginate-container"> <?php
                         echo paginate_links(array(
-                            'base' => get_pagenum_link(1) . '%_%',
-                            'format' => '/page/%#%',
-                            'current' => $current_page,
+                            // 'base' => get_pagenum_link(1) . '%_%',
+                            // 'format' => '/page/%#%',
+                            // 'current' => $current_page,
                             'total' => $total_pages,
                             'prev_text' => '<',
                             'next_text' => '>',

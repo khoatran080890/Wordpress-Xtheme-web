@@ -3,3 +3,5 @@
 
 
 category-slug.php → category-id.php → category.php → archive.php → index.php.
+var_dump()
+print_r()
