@@ -157,7 +157,6 @@ function Load_file(){
 
     wp_enqueue_style( 'file_css_support', get_theme_file_uri( '/css/style.css' )); // load css file
     wp_enqueue_script( 'file_javascript', get_theme_file_uri( '/js/index.js' ), array('jquery'), '1.0', true ); // load javasccript
-    wp_enqueue_script( 'file_javascript', get_theme_file_uri( '/js/page.js' ), array('jquery'), '1.0', true );
 }
 function Function_support(){
     register_nav_menu('home_tab_manager','Home Tab Manager'); // auto add theme tab - lesson 20: navigation
@@ -195,6 +194,22 @@ function _show_newest_post($arg){
             wp_reset_postdata(); 
         ?>
     </div>
+    <?php
+}
+
+function _show_address(){
+    ?>
+    <div><p> <i class="fa-sharp fa-solid fa-location-dot"></i> 891/110 Nguyễn Kiệm, Phường 3, Quận Gò Vấp, TP HCM </p></div>
+    <?php
+}
+function _show_phonenumber(){
+    ?>
+    <div><p> <i class="fa-solid fa-phone"></i>  012.345.6789 <span class="tab"></span><i class="fa-solid fa-phone"></i> 012.345.6789</p></div>
+    <?php
+}
+function _show_email(){
+    ?>
+    <div><p> <i class="fa-solid fa-envelope"></i>  abc@gmail.com </p></div>
     <?php
 }
 

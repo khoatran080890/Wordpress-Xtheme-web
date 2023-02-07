@@ -4,9 +4,11 @@
 
 <div class="column_2_even"> 
     <div class="column_2_even__column_1">
-        <div><p> <i class="fa-sharp fa-solid fa-location-dot"></i> 891/110 Nguyễn Kiệm, Phường 3, Quận Gò Vấp, TP HCM </p></div>
-        <div><p> <i class="fa-solid fa-phone"></i>  012.345.6789 <span class="tab"></span><i class="fa-solid fa-phone"></i> 012.345.6789</p></div>
-        <div><p> <i class="fa-solid fa-envelope"></i>  abc@gmail.com </p></div>
+        <?php
+            _show_address();
+            _show_phonenumber();
+            _show_email();
+        ?>
         <span class="enter__2">
         <div><p> Copyright ©2022 ABC Co., Ltd All rights reserved </p></div>
 

@@ -40,3 +40,7 @@ npm install live-server -g
 support debug php
 https://viblo.asia/p/toi-da-debug-code-php-nhu-nao-RnB5pWA7lPG
 link support debug: C:\Users\Luci\AppData\Roaming\Local\run\ZdEiX8az8\conf\php\php.ini
+
+
+Map location
+https://console.cloud.google.com/
