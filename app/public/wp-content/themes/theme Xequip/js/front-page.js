@@ -1,6 +1,12 @@
 
 
 
+// import AAAA from "./modules/abc"
+
+// const aaaa = new AAAA()
+
+
+
 
 // const
 const display_hide = "none";
@@ -47,6 +53,7 @@ function Init_slideshow_auto() {
 
     action_autoslide = setTimeout(Init_slideshow_auto, cooldown_autoslide);
 }
+
 
 
 

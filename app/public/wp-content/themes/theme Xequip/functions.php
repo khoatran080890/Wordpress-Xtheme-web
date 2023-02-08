@@ -156,7 +156,10 @@ function Load_file(){
     // wp_enqueue_style('file_css_support', get_theme_file_uri( '/build/index.css' ));
 
     wp_enqueue_style( 'file_css_support', get_theme_file_uri( '/css/style.css' )); // load css file
-    wp_enqueue_script( 'file_javascript', get_theme_file_uri( '/js/index.js' ), array('jquery'), '1.0', true ); // load javasccript
+    if(is_front_page()){
+        wp_enqueue_script( 'file_javascript', get_theme_file_uri( '/js/front-page.js' ), array('jquery'), '1.0', true ); // load javasccript
+    }
+    
 }
 function Function_support(){
     register_nav_menu('home_tab_manager','Home Tab Manager'); // auto add theme tab - lesson 20: navigation
