@@ -4,14 +4,23 @@
 
 <div class="column_2_even"> 
     <div class="column_2_even__column_1">
-        <?php
-            _show_address();
-            _show_phonenumber();
-            _show_email();
-        ?>
-        <span class="enter__2">
-        <div><p> Copyright ©2022 ABC Co., Ltd All rights reserved </p></div>
-
+        <div class="column_2_even__column_1__1">
+            <h3>ĐỊA CHỈ</h3>
+            <?php
+                _show_address();
+                _show_phonenumber();
+                _show_email();
+            ?>
+            <span class="enter__1">
+            <div><p> Copyright ©2022 ABC Co., Ltd All rights reserved </p></div>
+        </div>
+        <div class="enter__3"> </div>
+        <div class="column_2_even__column_1__2">
+            <h3>THỜI GIAN LÀM VIỆC</h3>
+            <?php
+                _show_wordkingtime();
+            ?>
+        </div>
     </div>
     <div class="column_2_even__column_2">
 

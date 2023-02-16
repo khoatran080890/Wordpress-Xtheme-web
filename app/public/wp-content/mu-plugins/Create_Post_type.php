@@ -45,6 +45,33 @@ function Create_Post_type(){
             // 'custom-fields',
         ),
     ));
+
+    register_post_type('product', array(
+        'has_archive' => true,
+        'public' => true,
+        // 'show_in_rest' => true, // Using The Modern Block Editor
+        'menu_icon' => 'dashicons-edit', // icon
+        'labels' => array(
+            'name' => 'POST: sản phẩm',
+            'add_new_item' => 'Add new: sản phẩmc',
+            'edit_item' => 'Edit: sản phẩm',
+            'all_items' => 'All sản phẩm',
+            'singular_name' => 'sản phẩm info'
+
+        ),
+        // 'hierarchical' => true,
+        'supports' => array(
+            'title',
+            // 'page-attributes',
+            // 'thumbnail',
+            // 'editor',
+            // 'excerpt',
+            // 'custom-fields',
+            // 'author',
+            // 'comments',
+            // 'custom-fields',
+        ),
+    ));
 }
 
 add_action('init', 'Create_Post_type');

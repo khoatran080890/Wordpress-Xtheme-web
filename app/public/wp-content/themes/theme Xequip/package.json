@@ -1,5 +1,6 @@
 {
   "name": "theme-xequip",
+  "type": "module",
   "version": "1.0.0",
   "description": "theme xequip package.json",
   "main": "index.js",
@@ -22,6 +23,8 @@
     "node-sass": "^8.0.0"
   },
   "dependencies": {
-    "@wordpress/scripts": "^25.1.0"
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "@wordpress/scripts": "^25.1.0",
+    "jquery": "^3.6.3"
   }
 }

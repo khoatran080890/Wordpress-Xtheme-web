@@ -18,7 +18,7 @@
             background-color: $color_test_4;
 
             &__txt{
-                font-size: 2rem;
+                font-size: 2rem;    
                 font-weight: 600;    
             }
         }
@@ -31,11 +31,11 @@
 
             //&__item:hover ~ &__item__item{ ===> choose all class
             //&__item:hover &__item__item{ ===> choose child
-            &__item:hover &__item__item{
-                visibility: visible;
-                opacity: 1;
-                height: 5rem;
-            }
+            // &__item:hover &__item__item{
+            //     visibility: visible;
+            //     opacity: 1;
+            //     height: 5rem;
+            // }
 
             &__item{
                 background-color: $color_test_6;
@@ -60,10 +60,16 @@
                     height: 0rem;
                     opacity: 0; // invisible
 
-                    // visibility: hidden; // invisible
+                    visibility: hidden; // invisible
                     // display: table-row;
 
                     transition: opacity 0.5s, height 0.5s;
+
+                    &__animation{
+                        visibility: visible;
+                        opacity: 1;
+                        height: 5rem;
+                    }
                 }
             }
         }

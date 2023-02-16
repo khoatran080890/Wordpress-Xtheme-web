@@ -9,6 +9,11 @@
     Support Function
     =======================================
 */
+
+function print_nice($data){
+    print("<pre>".print_r($data,true)."</pre>");
+}
+
 function get_id_by_slug($page_slug) { // get id from slug
     $page = get_page_by_path($page_slug);
     if ($page) {
@@ -17,6 +22,41 @@ function get_id_by_slug($page_slug) { // get id from slug
         return null;
     }
 } 
+
+function check_is_category(){
+    return get_query_var('cat');
+}
+
+function check_if_subcategory_grandsubcategory($current_category, $ancestor){
+    if (cat_is_ancestor_of($ancestor, $current_category) or is_category($ancestor)){
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+function get_category_allchild($slug){
+    $categories_sanpham = get_categories(
+        array(
+            'parent' => get_category_by_slug('/'.$slug) -> term_id
+        )
+    );
+    $array_slug_category_child;
+    foreach ($categories_sanpham as $categories_sanpham_child) {
+        $array_slug_category_child[] = $categories_sanpham_child->slug;
+        echo '<li>'.$categories_sanpham_child->slug.'</li>';
+        
+        $categories_categories_sanpham_child = get_categories(
+            array(
+                'parent' => $categories_sanpham_child->term_id
+            ));
+        if ($categories_categories_sanpham_child){
+            get_category_allchild($categories_sanpham_child->slug);
+        }
+    }
+    return $array_slug_category_child;    
+}
 
 enum Breadscrum_type
 {
@@ -27,6 +67,7 @@ function get_custom_breadcrumbs($style) {
     // if ($style == "parent"){
     if ($style == Breadscrum_type::parent){
         global $post;
+        // var_dump($post);
         // var_dump($post->ancestors);
         // var_dump($post->parent);
         // debug_print_backtrace();
@@ -77,13 +118,24 @@ function get_custom_breadcrumbs($style) {
     }
     if ($style == Breadscrum_type::category){
         echo '<a href="'.home_url().'" rel="nofollow">Home</a>';
+        // print_nice(is_category());
         if (is_category() || is_single()) {
             echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
+
+            echo '---';
+            $categories = get_categories();
+            foreach($categories as $category) {
+                echo '<div class="col-md-4"><a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a></div>';
+            }
+            echo '---';
+            print_nice(the_category(' &bull; '));
+            echo '---';
+
             the_category(' &bull; ');
-                if (is_single()) {
-                    echo " &nbsp;&nbsp;&#187;&nbsp;&nbsp; ";
-                    the_title();
-                }
+            if (is_single()) {
+                echo " &nbsp;&nbsp;&#187;&nbsp;&nbsp; ";
+                the_title();
+            }
         } elseif (is_page()) {
             echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
             echo the_title();
@@ -107,11 +159,13 @@ function get_custom_breadcrumbs($style) {
 // // require_once('Function Support/function_Walker_navigation.php');
 // require get_template_directory() . '/Function Support/function_Walker_navigation.php';
 
-// /*
-//     =======================================
-//     Support
-//     =======================================
-// */
+/*
+    =======================================
+    Support
+    =======================================
+*/
+
+
 // // add classes to wp_nav_menu
 // function wp_nav_menu_change_li_class($classes, $item, $args) {
 //     if(isset($args->li_class)) {
@@ -146,6 +200,11 @@ function Support_query($query){
 }
 add_action('pre_get_posts', 'Support_query');
 
+function Support_addeditorpannel_category() {
+    register_taxonomy_for_object_type('category','product');
+}
+add_action('init', 'Support_addeditorpannel_category');
+
 /*
     =======================================
     Load file
@@ -158,6 +217,12 @@ function Load_file(){
     wp_enqueue_style( 'file_css_support', get_theme_file_uri( '/css/style.css' )); // load css file
     if(is_front_page()){
         wp_enqueue_script( 'file_javascript', get_theme_file_uri( '/js/front-page.js' ), array('jquery'), '1.0', true ); // load javasccript
+    }
+    // or check_if_subcategory_grandsubcategory(get_category(get_query_var('cat'))->cat_ID, 4)
+    // echo get_query_var('cat');
+    if(is_page('san-pham') or check_is_category() ? check_if_subcategory_grandsubcategory(get_category(check_is_category())->cat_ID, get_category_by_slug('san-pham')) : true){
+        echo 'abc';
+        wp_enqueue_script( 'file_javascript', get_theme_file_uri( '/js/page-san-pham.js' ), array('jquery'), '1.0', true ); // load javasccript
     }
     
 }
@@ -202,17 +267,24 @@ function _show_newest_post($arg){
 
 function _show_address(){
     ?>
-    <div><p> <i class="fa-sharp fa-solid fa-location-dot"></i> 891/110 Nguyễn Kiệm, Phường 3, Quận Gò Vấp, TP HCM </p></div>
+    <div><p> <i class="fas fa-map-marker-alt"></i></i> 891/110 Nguyễn Kiệm, Phường 3, Quận Gò Vấp, TP HCM </p></div>
     <?php
 }
 function _show_phonenumber(){
     ?>
-    <div><p> <i class="fa-solid fa-phone"></i>  012.345.6789 <span class="tab"></span><i class="fa-solid fa-phone"></i> 012.345.6789</p></div>
+    <div><p> <i class="fas fa-phone"></i></i>  012.345.6789 <span class="tab"></span><i class="fas fa-phone"></i></i> 012.345.6789</p></div>
     <?php
 }
 function _show_email(){
     ?>
-    <div><p> <i class="fa-solid fa-envelope"></i>  abc@gmail.com </p></div>
+    <div><p> <i class="fas fa-envelope"></i></i>  abc@gmail.com </p></div>
+    <?php
+}
+function _show_wordkingtime(){
+    ?>
+    <div><p> - Thứ 2-7 : 08h - 17h30 </p></div>
+    <div><p> - Chủ nhật: 09h - 17h </p></div>
+    <div><p> - Nghỉ Trưa: 12h - 13h30  </p></div>
     <?php
 }
 

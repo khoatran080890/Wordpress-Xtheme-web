@@ -12,14 +12,21 @@
   overflow: hidden;
   text-decoration: none;
   color: #fff;
-  font-size: 1.8rem;
   padding: 3px 10px;
   border: none;
   outline: none; }
+  .button__small {
+    font-size: 1.35rem; }
+  .button__medium {
+    font-size: 1.8rem; }
   .button__blue {
     background-color: #0D3B66; }
   .button__blue:hover {
     background: linear-gradient(#12518d, #0D3B66); }
+  .button__red {
+    background-color: #ed1c24; }
+  .button__red:hover {
+    background: linear-gradient(#ef353c, #ed1c24); }
 
 .title {
   margin: 0;
@@ -118,8 +125,13 @@
   border-bottom: none; }
 
 .tab {
-  display: inline-block;
-  margin-left: 40px; }
+  display: inline-block; }
+  .tab__1 {
+    margin-left: 10px; }
+  .tab__2 {
+    margin-left: 20px; }
+  .tab__3 {
+    margin-left: 30px; }
 
 .enter__1 {
   display: inline-block;
@@ -306,10 +318,6 @@
       list-style: none;
       display: flex;
       flex-direction: column; }
-      .san-pham-body__column_1__Category__item:hover .san-pham-body__column_1__Category__item__item {
-        visibility: visible;
-        opacity: 1;
-        height: 5rem; }
       .san-pham-body__column_1__Category__item {
         background-color: #ff00dd;
         display: flex;
@@ -324,7 +332,12 @@
           font-weight: 400;
           height: 0rem;
           opacity: 0;
+          visibility: hidden;
           transition: opacity 0.5s, height 0.5s; }
+          .san-pham-body__column_1__Category__item__item__animation {
+            visibility: visible;
+            opacity: 1;
+            height: 5rem; }
   .san-pham-body__column_2 {
     background-color: #33ff00;
     margin: 1rem;
@@ -340,26 +353,23 @@
 .form-input-holder__item {
   display: flex; }
   .form-input-holder__item__icon {
-    width: 40px;
-    height: 35px;
+    width: 35px;
+    height: 30px;
     background: #ed1c24;
-    border-radius: 4px 0 0 4px;
-    text-align: center;
-    line-height: 35px;
-    color: #fff; }
-  .form-input-holder__item__input {
-    height: 100%;
-    display: block;
-    width: 100%;
-    height: 34px;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #555;
-    background-color: #fff;
-    background-image: none;
     border: 1px solid #ccc;
-    border-radius: 4px; }
+    border-radius: 10px 0 0 10px;
+    text-align: center;
+    line-height: 28px;
+    color: #fff;
+    font-size: 1.5rem; }
+  .form-input-holder__item__input {
+    padding: 2px 8px;
+    color: #555;
+    border: 1px solid #ccc;
+    border-radius: 0 10px 10px 0; }
+
+.form-input-holder__button {
+  padding: 8px 20px; }
 
 .column_2_fixedcolumn1 {
   display: flex;

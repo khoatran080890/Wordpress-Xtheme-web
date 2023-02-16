@@ -44,3 +44,7 @@ link support debug: C:\Users\Luci\AppData\Roaming\Local\run\ZdEiX8az8\conf\php\p
 
 Map location
 https://console.cloud.google.com/
+
+
+font awesome
+https://fontawesome.com/v5/search?q=mail&o=r&m=free 

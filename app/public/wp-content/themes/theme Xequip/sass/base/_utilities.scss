@@ -6,7 +6,15 @@
 
 .tab {
     display: inline-block;
-    margin-left: 40px;
+    &__1{
+        margin-left: 10px;
+    }
+    &__2{
+        margin-left: 20px;
+    }
+    &__3{
+        margin-left: 30px;
+    }
 }
 
 .enter {

@@ -62,7 +62,7 @@
                             <h2 class="title title__medium title__post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                             <div class="box"><p>Posted by <?php the_author_posts_link(); ?> on <?php the_time('Y/n/j') ?> in <?php echo get_the_category_list(', '); ?></p></div>
                             <div class="content"><p><?php the_excerpt(); ?></p></div>
-                            <div ><p><a class="button button__blue" href="<?php the_permalink(); ?>">Continue reading &raquo; </a></p></div>
+                            <div ><p><a class="button button__blue button__medium" href="<?php the_permalink(); ?>">Continue reading &raquo; </a></p></div>
                         </div>
                         <?php
                     }

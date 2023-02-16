@@ -17,8 +17,8 @@
                 <img class="home-slideshow__container__holder__img" src="<?php echo get_theme_file_uri( '/images/slideshow/bus.jpg' ) ?>" alt="slideshow 1" />
             </div>
         </div>
-        <button class="home-slideshow__btn-back" id="home-slideshow-btn-back" onclick="slideshow_add(-1)">Back</button>
-        <button class="home-slideshow__btn-next" id="home-slideshow-btn-next" onclick="slideshow_add(1)">Next</button>
+        <button class="home-slideshow__btn-back" id="home-slideshow-btn-back" >Back</button>
+        <button class="home-slideshow__btn-next" id="home-slideshow-btn-next" >Next</button>
     </div>
     <span class="enter__2">
     <div class="center">

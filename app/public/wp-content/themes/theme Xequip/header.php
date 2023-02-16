@@ -4,7 +4,8 @@
         <h1> THIS IS HEADER header.php</h1>
         <meta charset="<?php bloginfo('charset'); ?>"> <!-- ??? -->
         <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- for more resposive design -->
-        <script src="https://kit.fontawesome.com/07f2da793f.js" crossorigin="anonymous"></script> <!-- add font from fontawesome -->
+        <!--<script src="https://kit.fontawesome.com/07f2da793f.js" crossorigin="anonymous"></script> --> <!-- add font from fontawesome -->
+        <link rel="stylesheet" href="<?php echo get_theme_file_uri() ?>/node_modules/@fortawesome/fontawesome-free/css/all.min.css"> <!-- https://fontawesome.com/v5/search?q=mail&o=r&m=free -->  <!-- add font from fontawesome -->
         <!-- <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet"> -->
         <!-- tab title -->
         <!-- <title> TITLE </title> -->

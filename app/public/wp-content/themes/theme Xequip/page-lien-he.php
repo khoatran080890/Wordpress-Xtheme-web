@@ -44,14 +44,22 @@
                 <hr>
                 <h2> ĐỂ LẠI THÔNG TIN CỦA BẠN </h2>
 
-                <div class="form-input-holder">
-                    <div class="form-input-holder__item"> 
-                        <i class="fa fa-user form-input-holder__item__icon" aria-hidden="true"></i>
-                        <span>
-                            <input class="form-input-holder__item__input" type="text" value="" size="40" aria-required="true" aria-invalid="false" placeholder="Nhập họ và tên">
-                        </span>
-                    </div>
+
+                <div class="form-input-holder__item"> 
+                    <i class="fa fa-user form-input-holder__item__icon" aria-hidden="true"></i> 
+                    <input class="form-input-holder__item__input" type="text" value="" size="40" placeholder="Nhập họ và tên" id="lien-he-name">
                 </div>
+                <div class="form-input-holder__item"> 
+                    <i class="fas fa-envelope form-input-holder__item__icon" aria-hidden="true"></i> 
+                    <input class="form-input-holder__item__input" type="text" value="" size="40" placeholder="Nhập email" id="lien-he-mail">
+                </div>
+                <div class="form-input-holder__item"> 
+                    <i class="fas fa-phone form-input-holder__item__icon" aria-hidden="true"></i> 
+                    <input class="form-input-holder__item__input" type="text" value="" size="40" placeholder="Nhập số điện thoại" id="lien-he-phone">
+                </div>
+
+                <button class="form-input-holder__button button button__red button__small" id="lien-he-send" >Gửi đi</button>
+
             <?php
         }
     ?>

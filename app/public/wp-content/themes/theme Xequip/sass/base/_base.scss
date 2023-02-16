@@ -9,16 +9,21 @@
     overflow: hidden;
     text-decoration: none;
     color: #fff;
-    font-size: 1.8rem;
+    
     padding: 3px 10px;
     border: none;
     outline: none;
   
-    // &__small {
-    //     font-size: 1.35rem;
-    //     padding: 7px 13px;
-    //     font-weight: 300;
-    // }
+    &__small {
+        font-size: 1.35rem;
+        // padding: 7px 13px;
+        // font-weight: 300;
+    }
+    &__medium {
+        font-size: 1.8rem;
+        // padding: 7px 13px;   
+        // font-weight: 300;
+    }
     // &__large {
     //     font-size: 2.8rem;
     //     padding: 16px 34px;
@@ -54,6 +59,13 @@
         background: linear-gradient(scale-color($mainBlue, $lightness: 11%), $mainBlue);
     }
   
+    &__red {
+        background-color: $lightred;
+    }
+    &__red:hover {
+        background: linear-gradient(scale-color($lightred, $lightness: 11%), $lightred);
+    }
+
     // &__yellow {
     //     background-color: $mainYellow;
     //     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.22);
