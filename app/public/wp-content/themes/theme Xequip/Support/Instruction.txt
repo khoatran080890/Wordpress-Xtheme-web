@@ -48,3 +48,14 @@ https://console.cloud.google.com/
 
 font awesome
 https://fontawesome.com/v5/search?q=mail&o=r&m=free 
+
+
+
+
+
+
+
+
+
+CSS====================================================================================================================================
+center text: https://blog.hubspot.com/website/center-div-css

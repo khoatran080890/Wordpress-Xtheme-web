@@ -119,9 +119,25 @@
     // }
     &__medium {
         font-size: 3.5rem;
-        margin-bottom: 0.75rem;
+        // margin-bottom: 0.75rem;
         @include response(tablet-potrait) {
             font-size: 3rem;
+        }
+    }
+    &__small {
+        // font-size: 2.4rem;
+        // margin-bottom: 1.9rem;
+        @include response(desktop-big){
+            font-size: 3.2rem;
+        }
+        @include response(tablet-landscape){
+            font-size: 2.4rem; 
+        }
+        @include response(tablet-potrait){
+            font-size: 2rem;
+        }
+        @include response(phone){
+            font-size: 0.8rem;
         }
     }
 //     &__small-plus {

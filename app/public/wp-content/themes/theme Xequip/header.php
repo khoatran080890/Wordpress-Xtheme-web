@@ -58,6 +58,13 @@
 
         </div>
 
+
+        <?php
+            // get_top_category(get_query_var('cat'));
+
+            // get_top_category(11);
+        ?>
+
         
         
 

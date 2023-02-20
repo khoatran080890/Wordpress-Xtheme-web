@@ -11,6 +11,10 @@
     $current_parent_title = get_the_title($current_parent_id);
 
     $check_isparentpage = !$current_parent_id;
+
+
+    const pagesanpham_clickcategory_one_active = 0;
+    const pagesanpham_clickcategory_multiple_active = 1;
     
     get_header();
 ?>
@@ -66,7 +70,8 @@
                         // print_nice($categories_sanpham_child);
                         ?>
                         <div class="san-pham-body__column_1__Category__item" id="<?php echo $categories_sanpham_child->term_id ?>" 
-                        onclick="_pagesanpham.Click(<?php echo $categories_sanpham_child->term_id ?>)"><a href="#"><i class="fas fa-chevron-right"></i>
+                        onclick="_pagesanpham.Click(<?php echo $categories_sanpham_child->term_id ?>, <?php echo pagesanpham_clickcategory_one_active ?>)">
+                        <a href="<?php echo get_category_link($categories_sanpham_child->term_id); ?>"><i class="fas fa-chevron-right"></i>
                         <?php echo " " . $categories_sanpham_child->name ?></a>
                         <?php
                         // sub_category

@@ -10,7 +10,7 @@
     get_header();
 ?>
 
-<div class="breadcrumb"><?php get_custom_breadcrumbs(Breadscrum_type::category); ?></div> <!-- function.php -->
+<div class="breadcrumb"><?php get_custom_breadcrumbs(Breadscrum_type::category_custom); ?></div> <!-- function.php -->
 
 <div class="column_2_fixedcolumn1"> 
     <div class="column_2_fixedcolumn1__column_1">

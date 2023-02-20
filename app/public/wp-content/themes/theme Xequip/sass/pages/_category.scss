@@ -1,0 +1,31 @@
+
+
+
+
+
+.container_product_item{
+    
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    // grid-auto-rows: calc((100vw - 2rem - 25rem - 2rem) * 0.35);
+    // grid-auto-rows: calc((1rem));
+
+    &__box{
+        background-color: $color_test_4;
+        
+
+        &__icon{
+            width: 100%;
+            aspect-ratio: 1 / 1;
+        }
+
+        &__title{
+            background-color: $color_test_6;
+            // aspect-ratio: 5 / 1;
+        }
+
+    }
+
+}

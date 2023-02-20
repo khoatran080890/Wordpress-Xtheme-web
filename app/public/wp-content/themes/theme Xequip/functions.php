@@ -11,7 +11,9 @@
 */
 
 function print_nice($data){
+    print('<br>----');
     print("<pre>".print_r($data,true)."</pre>");
+    print('----<br>');
 }
 
 function get_id_by_slug($page_slug) { // get id from slug
@@ -34,6 +36,57 @@ function check_if_subcategory_grandsubcategory($current_category, $ancestor){
     else {
         return false;
     }
+}
+
+function get_top_category($cat_ID) {
+    if (is_category($cat_ID)){
+        $cats = get_ancestors($cat_ID, 'category');
+        $cats[] = $cat_ID;
+        // print_nice($cat_ID);
+        // print_nice($cats);
+        
+        foreach($cats as $cat) {
+            // print_nice(get_category($cat));
+            if (get_category($cat)->parent == 0) {
+                $top_catID_first[] = $cat;  
+            }
+        }
+        $top_catID_first = $top_catID_first[0];
+        foreach($cats as $cat) {
+            // print_nice(get_category($cat));
+            if (get_category($cat)->parent == $top_catID_first) {
+                $top_catID_second[] = $cat;  
+            }
+        }
+        // print_nice($top_catID_second);
+        $top_catID_second = $top_catID_second[0];
+        // print_nice($top_cat_obj);
+        return $top_catID_second;
+    }
+    else if(is_single($cat_ID)){
+        $cats = get_ancestors(get_the_category($cat_ID)[0]->cat_ID, 'category');
+        // print_nice($cat_ID);
+        // print_nice(get_the_category($cat_ID)[0]->cat_ID);
+        // print_nice($cats);
+        foreach($cats as $cat) {
+            // print_nice(get_category($cat));
+            if (get_category($cat)->parent == 0) {
+                $top_catID_first[] = $cat;  
+            }
+        }
+        $top_catID_first = $top_catID_first[0];
+        // print_nice($top_catID_first);
+        foreach($cats as $cat) {
+            // print_nice(get_category($cat));
+            if (get_category($cat)->parent == $top_catID_first) {
+                $top_catID_second[] = $cat;  
+            }
+        }
+        $top_catID_second = $top_catID_second[0];
+        // print_nice($top_catID_second);
+        return $top_catID_second;
+    }
+    
 }
 
 function get_category_allchild($slug){
@@ -62,6 +115,8 @@ enum Breadscrum_type
 {
     case parent;
     case category;
+    case yoast_seo;
+    case category_custom;
 }
 function get_custom_breadcrumbs($style) {
     // if ($style == "parent"){
@@ -122,14 +177,9 @@ function get_custom_breadcrumbs($style) {
         if (is_category() || is_single()) {
             echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
 
-            echo '---';
-            $categories = get_categories();
-            foreach($categories as $category) {
-                echo '<div class="col-md-4"><a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a></div>';
-            }
-            echo '---';
-            print_nice(the_category(' &bull; '));
-            echo '---';
+            // echo '---';
+            // print_nice(the_category(' &bull; '));
+            // echo '---';
 
             the_category(' &bull; ');
             if (is_single()) {
@@ -146,8 +196,46 @@ function get_custom_breadcrumbs($style) {
             echo '</em>"';
         }
     }
+    if ($style == Breadscrum_type::yoast_seo){
+        if (function_exists('yoast_breadcrumb')){
+            yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+        }
+    }
+    if ($style == Breadscrum_type::category_custom){
+        echo '<a href="'.home_url().'" rel="nofollow">Home</a>';
+        if (is_category()){
+            echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
+            $category = get_category(get_query_var('cat'));
+            // $category_parent_1 = get_category($category->parent);
+            // rtrim($str2, ", ");
+            echo rtrim(get_category_parents($category->cat_ID, true, '&nbsp;&nbsp;&#187;&nbsp;&nbsp;'), '&nbsp;&nbsp;&#187;&nbsp;&nbsp;');
+            if (is_single()) {
+                echo " &nbsp;&nbsp;&#187;&nbsp;&nbsp; ";
+                the_title();
+            }
+        } 
+        elseif (is_single()) {
+            echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
+            $post_category = get_the_category();
+            echo rtrim(get_category_parents($post_category[0]->cat_ID, true, '&nbsp;&nbsp;&#187;&nbsp;&nbsp;'), '&nbsp;&nbsp;&#187;&nbsp;&nbsp;');
+            echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
+            the_title();
+        } 
+        elseif (is_page()) {
+            echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
+            echo the_title();
+        } 
+        elseif (is_search()) {
+            echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;Search Results for... ";
+            echo '"<em>';
+            echo the_search_query();
+            echo '</em>"';
+        }
+    }
 }
+function get_custom_breadcrumbs_SP($category){
 
+}
 
 
 
@@ -220,9 +308,19 @@ function Load_file(){
     }
     // or check_if_subcategory_grandsubcategory(get_category(get_query_var('cat'))->cat_ID, 4)
     // echo get_query_var('cat');
-    if(is_page('san-pham') or check_is_category() ? check_if_subcategory_grandsubcategory(get_category(check_is_category())->cat_ID, get_category_by_slug('san-pham')) : true){
-        echo 'abc';
+    // print_nice(is_page('san-pham'));
+    // print_nice(check_is_category() ? check_if_subcategory_grandsubcategory(get_category(check_is_category())->cat_ID, get_category_by_slug('san-pham')) : true);
+    // print_nice(is_post_type_archive('product'));
+    if(is_page('san-pham') or ((check_is_category() ? check_if_subcategory_grandsubcategory(get_category(check_is_category())->cat_ID, get_category_by_slug('san-pham')) : (is_post_type_archive('product'))))){
+        // echo '----';
         wp_enqueue_script( 'file_javascript', get_theme_file_uri( '/js/page-san-pham.js' ), array('jquery'), '1.0', true ); // load javasccript
+        wp_localize_script('file_javascript', "WP_vars", array(
+
+            "parent_categoryID" => get_top_category(get_query_var('cat') ? get_query_var('cat') : get_the_ID()),
+            // "parent_categoryID" => 4,
+
+            )
+        );
     }
     
 }
@@ -237,6 +335,23 @@ function Function_support(){
 // load files
 add_action( 'wp_enqueue_scripts', 'Load_file');
 add_action( 'after_setup_theme', 'Function_support');
+
+
+/*
+    =======================================
+    Pass variable -> Javascript
+    =======================================
+*/
+// function transfer_variable() {
+//     wp_enqueue_script("a", get_template_directory_uri() . "/js/page-san-pham.js");
+//     wp_localize_script("a", "WP_vars", array(
+
+//           "parent_categoryID" => 4,
+          
+//         )
+//       );
+// }
+// add_action("wp_enqueue_scripts", "transfer_variable");
 
 
 ?>
@@ -288,5 +403,13 @@ function _show_wordkingtime(){
     <?php
 }
 
+
+?>
+
+
+<?php
+
+
+    
 
 ?>

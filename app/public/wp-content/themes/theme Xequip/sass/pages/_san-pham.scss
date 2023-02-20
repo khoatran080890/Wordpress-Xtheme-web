@@ -7,17 +7,20 @@
 
     display: flex;
     background-color: $color_test_1;
-
+    
     &__column_1{
         background-color: $color_test_2;
         width: 25rem;
         margin: 1rem;
         display: flex;
         flex-direction: column;
+        
         &__Title{
             background-color: $color_test_4;
-
+            height: 4rem;
             &__txt{
+                display: flex;
+                line-height: 0;
                 font-size: 2rem;    
                 font-weight: 600;    
             }
@@ -28,7 +31,7 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-
+            
             //&__item:hover ~ &__item__item{ ===> choose all class
             //&__item:hover &__item__item{ ===> choose child
             // &__item:hover &__item__item{
@@ -41,7 +44,7 @@
                 background-color: $color_test_6;
                 display: flex;
                 flex-direction: column;
-
+                line-height: 4rem;
                 font-size: 2rem;
                 font-weight: 400;
                 // height: 5rem;
@@ -52,6 +55,9 @@
 
                 &__item{
                     background-color: $color_test_7;
+
+                    line-height: 4rem;
+
                     margin-left: 2rem;
 
                     font-size: 1.5rem;
@@ -68,7 +74,7 @@
                     &__animation{
                         visibility: visible;
                         opacity: 1;
-                        height: 5rem;
+                        height: 4rem;
                     }
                 }
             }
