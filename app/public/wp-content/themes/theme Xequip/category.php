@@ -87,8 +87,10 @@
                 while($query_post->have_posts()){
                     $query_post->the_post();?>
                     <div class="container_product_item__box">
+                        <a href="<?php the_permalink(); ?>">
                         <img class="container_product_item__box__icon" src="<?php echo get_theme_file_uri( '/images/slideshow/apples.jpg' ) ?>" alt="test icon" />
-                        <h2 class="title title__small title__post-title center container_product_item__box__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                        <h2 class="title title__small title__post-title center container_product_item__box__title"><?php the_title(); ?></h2>
+                        </a>
                         
                     </div>
                     <?php

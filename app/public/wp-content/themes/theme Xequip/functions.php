@@ -322,13 +322,19 @@ function Load_file(){
             )
         );
     }
+
+
+    wp_enqueue_script( 'file_javascript', get_theme_file_uri( '/js/single-product.js' ), array('jquery'), '1.0', true ); // load javasccript
     
+    if (is_singular('product')){
+    }
 }
 function Function_support(){
     register_nav_menu('home_tab_manager','Home Tab Manager'); // auto add theme tab - lesson 20: navigation
     add_theme_support('title-tag'); // add tab title browser
     add_theme_support('post-thumbnails'); // add featured image for post and customized post
     add_image_size('img_100x100', 100, 100, true);
+    add_image_size('img_360x360', 360, 360, true);
     add_image_size('img_960x540', 960, 540, true);
 }
 

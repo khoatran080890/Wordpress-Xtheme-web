@@ -76,7 +76,7 @@
 
 .content p,
 .content li {
-  font-size: 1.35rem; }
+  font-size: 2rem; }
 
 .content blockquote,
 .content blockquote p {
@@ -397,6 +397,79 @@
       aspect-ratio: 1 / 1; }
     .container_product_item__box__title {
       background-color: #ff00dd; }
+
+.block-production-icon-description {
+  display: flex; }
+
+.product-icon {
+  width: 40%;
+  float: left;
+  padding: 4px;
+  margin: 3px; }
+  .product-icon__main {
+    width: 100%;
+    display: flex;
+    justify-content: center; }
+    .product-icon__main__child {
+      width: 100%;
+      background-color: grey;
+      padding: 4px; }
+  .product-icon__sub {
+    margin: 0px;
+    float: left;
+    display: flex;
+    width: 100%; }
+    .product-icon__sub__child:hover {
+      cursor: pointer; }
+    .product-icon__sub__child {
+      background-color: grey;
+      margin: 2px;
+      padding: 2px;
+      flex: 1;
+      width: 10%;
+      aspect-ratio: 1 / 1; }
+
+.product-description {
+  max-width: 60%;
+  padding-left: 2rem;
+  margin-left: 2rem;
+  flex-grow: 1; }
+
+.block-tabs {
+  padding: 2rem;
+  margin: 2rem; }
+  .block-tabs__pannel {
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid grey; }
+    .block-tabs__pannel__header {
+      display: flex;
+      height: 60px; }
+      .block-tabs__pannel__header__tab:hover {
+        background-color: grey;
+        cursor: pointer; }
+      .block-tabs__pannel__header__tab {
+        max-height: 100%;
+        border-radius: 4px 4px 0 0;
+        border-bottom: 1px solid grey;
+        margin: 1rem 0 0 0;
+        padding: 1rem;
+        font-size: 2rem;
+        display: flex;
+        justify-content: center;
+        align-self: flex-end; }
+        .block-tabs__pannel__header__tab__active {
+          border: 1px solid grey;
+          border-bottom-color: transparent;
+          border-top: 5px solid #004986; }
+        .block-tabs__pannel__header__tab__space-first {
+          width: 10px;
+          border-bottom: 1px solid grey; }
+        .block-tabs__pannel__header__tab__space-last {
+          flex-grow: 1;
+          border-bottom: 1px solid grey; }
+    .block-tabs__pannel__body {
+      font-size: 2rem; }
 
 .column_2_fixedcolumn1 {
   display: flex;

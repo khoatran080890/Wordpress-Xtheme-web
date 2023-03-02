@@ -63,8 +63,8 @@ function Create_Post_type(){
         'supports' => array(
             'title',
             // 'page-attributes',
-            // 'thumbnail',
-            // 'editor',
+            'thumbnail',
+            'editor',
             // 'excerpt',
             // 'custom-fields',
             // 'author',
