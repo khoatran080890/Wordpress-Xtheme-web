@@ -52,8 +52,21 @@
                 // overflow: auto;
                 // display: table;
                 height: max-content;
+                // height: 4rem;
 
-                &__item{
+                &__parent:hover{
+                    cursor: pointer;
+                }
+                &__parent{
+                    height: 4rem;
+                    display: flex;
+                    align-items: center;
+                }
+
+                &__child:hover{
+                    cursor: pointer;
+                }
+                &__child{
                     background-color: $color_test_7;
 
                     line-height: 4rem;
@@ -65,7 +78,6 @@
 
                     height: 0rem;
                     opacity: 0; // invisible
-
                     visibility: hidden; // invisible
                     // display: table-row;
 

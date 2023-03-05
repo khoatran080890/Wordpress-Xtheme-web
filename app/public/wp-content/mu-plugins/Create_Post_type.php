@@ -49,7 +49,7 @@ function Create_Post_type(){
     register_post_type('product', array(
         'has_archive' => true,
         'public' => true,
-        // 'show_in_rest' => true, // Using The Modern Block Editor
+        'show_in_rest' => true, // Using The Modern Block Editor + API
         'menu_icon' => 'dashicons-edit', // icon
         'labels' => array(
             'name' => 'POST: sản phẩm',

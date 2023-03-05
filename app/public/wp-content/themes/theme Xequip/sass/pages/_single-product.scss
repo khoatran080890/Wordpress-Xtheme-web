@@ -122,6 +122,10 @@
                 &__space-last{
                     flex-grow: 1;
                     border-bottom: 1px solid grey;
+
+                    // display: flex;
+                    // // flex-direction: column;
+                    // justify-content: flex-end;
                 }
             }
 

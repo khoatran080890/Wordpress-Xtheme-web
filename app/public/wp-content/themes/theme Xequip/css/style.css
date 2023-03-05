@@ -339,7 +339,15 @@
         font-size: 2rem;
         font-weight: 400;
         height: max-content; }
-        .san-pham-body__column_1__Category__item__item {
+        .san-pham-body__column_1__Category__item__parent:hover {
+          cursor: pointer; }
+        .san-pham-body__column_1__Category__item__parent {
+          height: 4rem;
+          display: flex;
+          align-items: center; }
+        .san-pham-body__column_1__Category__item__child:hover {
+          cursor: pointer; }
+        .san-pham-body__column_1__Category__item__child {
           background-color: #ff005d;
           line-height: 4rem;
           margin-left: 2rem;
@@ -349,7 +357,7 @@
           opacity: 0;
           visibility: hidden;
           transition: opacity 0.5s, height 0.5s; }
-          .san-pham-body__column_1__Category__item__item__animation {
+          .san-pham-body__column_1__Category__item__child__animation {
             visibility: visible;
             opacity: 1;
             height: 4rem; }
@@ -392,11 +400,34 @@
   gap: 1rem; }
   .container_product_item__box {
     background-color: #00fff2; }
+    .container_product_item__box a {
+      display: flex;
+      flex-direction: column;
+      height: 100%; }
     .container_product_item__box__icon {
       width: 100%;
       aspect-ratio: 1 / 1; }
+    .container_product_item__box__price {
+      background-color: #ff005d;
+      aspect-ratio: 5 / 1;
+      overflow: hidden; }
     .container_product_item__box__title {
-      background-color: #ff00dd; }
+      background-color: #ff00dd;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      /* number of lines to show */
+      line-clamp: 2;
+      -webkit-box-orient: vertical; }
+    .container_product_item__box__sold {
+      background-color: #0800ff;
+      aspect-ratio: 5 / 1;
+      overflow: hidden;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end; }
 
 .block-production-icon-description {
   display: flex; }
