@@ -135,6 +135,11 @@
 .hyperlink-li li:last-child {
   border-bottom: none; }
 
+.no-scroll {
+  margin: 0;
+  height: 100%;
+  overflow: hidden; }
+
 .tab {
   display: inline-block; }
   .tab__1 {
@@ -180,15 +185,20 @@
 
 .page-numbers {
   font-size: 2rem;
+  font-weight: 550;
   background-color: #FAF0CA;
   border-radius: 2px;
   box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.07);
   height: 3rem;
   margin: 0.5rem;
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   aspect-ratio: 1 / 1; }
+  .page-numbers__current {
+    color: white;
+    background-color: green; }
 
 .breadcrumb {
   padding: 8px 15px;
@@ -366,6 +376,48 @@
     margin: 1rem;
     flex: 1; }
 
+.san-pham-body-detail {
+  transition: opacity 0.5s, visibility 0.5s; }
+  .san-pham-body-detail__hidden {
+    visibility: hidden;
+    opacity: 0; }
+  .san-pham-body-detail__background {
+    position: fixed;
+    inset: 0px;
+    background-color: rgba(36, 36, 36, 0.5);
+    z-index: 999; }
+    .san-pham-body-detail__background__pannel {
+      position: absolute;
+      inset: 50% 40px 40px 50%;
+      border: none;
+      background: white;
+      overflow: hidden;
+      border-radius: 8px;
+      outline: none;
+      padding: 0px;
+      width: 80vw;
+      height: 80vh;
+      max-height: 95vh;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+      overflow-y: auto; }
+      @media (max-width: 112.5rem) {
+        .san-pham-body-detail__background__pannel {
+          width: 70vw;
+          height: 70vh; } }
+      @media (max-width: 75rem) {
+        .san-pham-body-detail__background__pannel {
+          width: 80vw;
+          height: 80vh; } }
+      @media (max-width: 56.25rem) {
+        .san-pham-body-detail__background__pannel {
+          width: 80vw;
+          height: 80vh; } }
+      @media (max-width: 37.5rem) {
+        .san-pham-body-detail__background__pannel {
+          width: 90vw;
+          height: 90vh; } }
+
 .paginate-container {
   display: flex;
   align-items: center; }
@@ -396,14 +448,17 @@
 
 .container_product_item {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem; }
+  grid-template-columns: repeat(4, 1fr); }
   .container_product_item__box {
-    background-color: #00fff2; }
-    .container_product_item__box a {
-      display: flex;
-      flex-direction: column;
-      height: 100%; }
+    background-color: #00fff2;
+    margin: 0.5rem;
+    cursor: pointer;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s, visibility 0.5s;
+    display: flex;
+    flex-direction: column;
+    height: 100%; }
     .container_product_item__box__icon {
       width: 100%;
       aspect-ratio: 1 / 1; }
@@ -428,6 +483,12 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end; }
+    .container_product_item__box__animation {
+      opacity: 0;
+      visibility: hidden;
+      width: 0px;
+      height: 0px;
+      margin: 0px; }
 
 .block-production-icon-description {
   display: flex; }

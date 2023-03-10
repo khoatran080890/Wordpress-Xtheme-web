@@ -87,9 +87,9 @@
                                 ?>
                                 <div class="san-pham-body__column_1__Category__item__child tab__2" 
                                 id="child_<?php echo $categories_sanpham_child->term_id ?>"
-                                onclick="_pagesanpham.Click_showitem(<?php echo $categories_sanpham_child->term_id ?>)">
+                                onclick="_pagesanpham.Click_showitem(<?php echo $categories_categories_sanpham_child_child->term_id ?>, 4)">
                                 <i class="fas fa-chevron-right"></i>
-                                <?php echo " " . $categories_categories_sanpham_child_child->name ?></div>
+                                <?php echo " " . $categories_categories_sanpham_child_child->name ?></a></div>
                                 <?php
                             }
                         }
@@ -115,7 +115,7 @@
             $query_post = new WP_Query(array(
                 'post_type'=>'product',
                 'cat' => $cat,
-                'posts_per_page' => -1,
+                'posts_per_page' => 8,
                 'paged' => get_query_var('paged') ? get_query_var('paged') : 1) 
             ); 
             
@@ -126,8 +126,7 @@
                 while($query_post->have_posts()){
                     $query_post->the_post();?>
                     <div class="container_product_item__box">
-                        <a href="<?php the_permalink(); ?>">
-                        <img class="container_product_item__box__icon" src="<?php echo get_theme_file_uri( '/images/slideshow/apples.jpg' ) ?>" alt="test icon" />
+                        <img class="container_product_item__box__icon" src="<?php echo get_theme_file_uri('/images/slideshow/apples.jpg') ?>" alt="test icon" />
                         <p class="title title__small title__post-title container_product_item__box__price"><?php echo get_field('price_presale') ?></p>
                         <p class="title title__small title__post-title container_product_item__box__title"><?php the_title(); ?></p>
                         <p class="title title__small title__post-title container_product_item__box__sold">Đã bán: <?php echo get_field('sold') ?></p>
@@ -162,6 +161,88 @@
 
     </div>
 </div>
+
+<div class="san-pham-body-detail san-pham-body-detail__hidden" onclick="_pagesanpham.Click_productdetail_background()">
+    <div class="san-pham-body-detail__background">
+        <div class="san-pham-body-detail__background__pannel" onclick="_pagesanpham.Click_productdetail_background_pannel(event)">
+            
+        
+        <div class="san-pham-body__column_2"  id="content">
+            <?php 
+                $field_img_1 = get_field('product_icon_1'); 
+                $field_img_2 = get_field('product_icon_2'); 
+                $field_img_3 = get_field('product_icon_3'); 
+                $field_img_4 = get_field('product_icon_4'); 
+                $field_img_5 = get_field('product_icon_5'); 
+
+                $field_txt_description = get_field('product_description'); 
+                // var_dump($field_img_1);
+                // get_theme_file_uri('/images/support images/emptyy_360x360.jpg')
+                ?>
+                <div class="block-production-icon-description">
+                    <div class="product-icon">
+                        <div class="product-icon__main">
+                        <img class="product-icon__main__child" 
+                        src="<?php echo (($field_img_1 != NULL) ? $field_img_1['sizes']['img_360x360'] : get_theme_file_uri('/images/support images/empty_360x360.jpg')); ?>" alt="<?php echo (($field_img_1 != NULL) ? $field_img_1['alt'] : "empty"); ?>" />
+                        </div>
+                        <div class="product-icon__sub">
+                        <img class="product-icon__sub__child" src="<?php echo (($field_img_1 != NULL) ? $field_img_1['sizes']['img_360x360'] : get_theme_file_uri('/images/support images/empty_360x360.jpg')); ?>" alt="<?php echo (($field_img_1 != NULL) ? $field_img_1['alt'] : "empty"); ?>" />
+                        <img class="product-icon__sub__child" src="<?php echo (($field_img_2 != NULL) ? $field_img_2['sizes']['img_360x360'] : get_theme_file_uri('/images/support images/empty_360x360.jpg')); ?>" alt="<?php echo (($field_img_2 != NULL) ? $field_img_2['alt'] : "empty"); ?>" />
+                        <img class="product-icon__sub__child" src="<?php echo (($field_img_3 != NULL) ? $field_img_3['sizes']['img_360x360'] : get_theme_file_uri('/images/support images/empty_360x360.jpg')); ?>" alt="<?php echo (($field_img_3 != NULL) ? $field_img_3['alt'] : "empty"); ?>" />
+                        <img class="product-icon__sub__child" src="<?php echo (($field_img_4 != NULL) ? $field_img_4['sizes']['img_360x360'] : get_theme_file_uri('/images/support images/empty_360x360.jpg')); ?>" alt="<?php echo (($field_img_4 != NULL) ? $field_img_4['alt'] : "empty"); ?>" />
+                        <img class="product-icon__sub__child" src="<?php echo (($field_img_5 != NULL) ? $field_img_5['sizes']['img_360x360'] : get_theme_file_uri('/images/support images/empty_360x360.jpg')); ?>" alt="<?php echo (($field_img_5 != NULL) ? $field_img_5['alt'] : "empty"); ?>" />
+                        </div>
+                    </div>
+                    <div class="product-description">
+                        <div class="product-description__title"><h2>
+                            <?php echo $current_title; ?>
+                        </h2></div>
+                        <hr>
+                        <div class="product-description__content content"><p>
+                            <?php
+                            echo wpautop(get_the_content());
+                            // echo $field_txt_description;
+                            ?>
+                        </p></div>
+                    </div>
+                </div>
+                <hr>
+                <hr>
+                <hr>
+                <div class="block-tabs">
+                    <div class="block-tabs__pannel">
+                        <div class="block-tabs__pannel__header">
+                            <div class="block-tabs__pannel__header__tab__space-first">
+                            </div>
+                            <div class="block-tabs__pannel__header__tab content block-tabs__pannel__header__tab__active" id="product-technical-detail">
+                                Technical Detail
+                            </div>
+                            <div class="block-tabs__pannel__header__tab content" id="product-review">
+                                Review
+                            </div>
+                            <div class="block-tabs__pannel__header__tab__space-last">
+                            </div>
+                        </div>
+                        <div class="block-tabs__pannel__body">
+                            line 1
+                            <br>
+                            line 2
+                            <br>
+                            line 3
+                            <br>
+                            line 4
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+
+
+
+        </div>
+    </div>
+</div>
+
 
 
 

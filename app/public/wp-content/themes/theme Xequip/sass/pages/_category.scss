@@ -8,19 +8,24 @@
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+    // gap: 1rem;
     // grid-auto-rows: calc((100vw - 2rem - 25rem - 2rem) * 0.35);
     // grid-auto-rows: calc((1rem));
 
     &__box{
         background-color: $color_test_4;
-        
 
-        a{
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
+        margin: 0.5rem;
+
+        cursor: pointer;
+
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 0.5s, visibility 0.5s;
+
+        display: flex;
+        flex-direction: column;
+        height: 100%;
         &__icon{
             width: 100%;
             aspect-ratio: 1 / 1;
@@ -60,6 +65,14 @@
             // position: absolute;
             // bottom: 0;
             // left: 0;
+        }
+
+        &__animation{
+            opacity: 0; // invisible
+            visibility: hidden; // invisible
+            width: 0px;
+            height: 0px;
+            margin: 0px;
         }
 
     }

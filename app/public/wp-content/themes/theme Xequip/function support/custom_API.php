@@ -26,7 +26,7 @@ function get_products_info_Result(){
             'price_presale' => get_field('price_presale') != NULL ? get_field('price_presale') : '',
             'sold' => get_field('sold') != NULL ? get_field('sold') : '',
             'id' => get_the_ID(),
-            'id_category' => get_the_category(get_the_ID()),
+            'id_category' => get_the_category(get_the_ID())[0]->term_id,
         ));
     }
 

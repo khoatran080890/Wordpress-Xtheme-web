@@ -100,6 +100,63 @@
     }
 }
 
+.san-pham-body-detail{
+
+    transition: opacity 0.5s, visibility 0.5s;
+    &__hidden{
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    &__background{
+
+        position: fixed;
+        inset: 0px;
+        background-color: rgba(36, 36, 36, 0.5);
+        z-index: 999;
+
+        &__pannel{
+            position: absolute;
+            inset: 50% 40px 40px 50%;
+            border: none;
+            background: rgb(255, 255, 255);
+            overflow: hidden;
+            border-radius: 8px;
+            outline: none;
+            padding: 0px;
+
+            width: 80vw;
+            height: 80vh;
+            @include response(desktop-big){
+                width: 70vw;
+                height: 70vh;
+            }
+            @include response(tablet-landscape){
+                width: 80vw;
+                height: 80vh;   
+            }
+            @include response(tablet-potrait){
+                width: 80vw;
+                height: 80vh;
+            }
+            @include response(phone){
+                width: 90vw;
+                height: 90vh;
+            }
+            max-height: 95vh;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+
+            // add scroll
+            overflow-y: auto;
+        }
+
+    }
+    
+
+}
+
+
 // .san-pham-body__column_1__Category__item:focus .san-pham-body__column_1__Category__item__item,
 // .san-pham-body__column_1__Category__item:focus-within .san-pham-body__column_1__Category__item__item,
 // .san-pham-body__column_1__Category__item:hover .san-pham-body__column_1__Category__item__item{

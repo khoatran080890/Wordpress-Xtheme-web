@@ -49,4 +49,12 @@ function _show_wordkingtime(){
 }
 
 
+
+
+
+function _get_empty_img(){
+    ?>
+    <img class="product-icon__sub__child" src="<?php echo $field_img_1['sizes']['img_360x360']; ?>" alt="<?php echo $field_img_1['alt']; ?>" />
+    <?php
+}
 ?>

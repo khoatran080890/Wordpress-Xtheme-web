@@ -40,10 +40,14 @@
 
     
     <div class="column_2_fixedcolumn1"> 
+
+
         <?php
+            
             _show_newest_post(array(
                 'post_exerpt_trim' => 25,
             ));
+            
         ?>
         <div class="column_2_fixedcolumn1__column_2">
             <?php

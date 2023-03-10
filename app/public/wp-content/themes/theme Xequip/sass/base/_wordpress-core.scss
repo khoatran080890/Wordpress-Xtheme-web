@@ -1,5 +1,9 @@
 
 
+
+
+
+
 // post-thumbnail
 .wp-post-image{
     max-height:100%; 
@@ -12,6 +16,7 @@
 // paginate_links
 .page-numbers{
     font-size: 2rem;
+    font-weight: 550;
 
     background-color: $beige;
     border-radius: 2px;
@@ -20,12 +25,19 @@
     height: 3rem;
     margin: 0.5rem;
 
+    cursor: pointer;
+
     // make text center
     display: flex;
     justify-content: center;
     align-items: center; 
     // make square
     aspect-ratio : 1 / 1;
+
+    &__current{
+        color: white;
+        background-color: green;
+    }
 }
 .breadcrumb {
     padding: 8px 15px;

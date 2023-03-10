@@ -13,7 +13,11 @@
     </head>
     
     <!-- show current page info - id - child or parent -->
-    <body <?php body_class(); ?>> 
+    <?php 
+    //body_class(); 
+    ?>
+    <!-- class="no-scroll" -->
+    <body class=""> 
         <div class="header"> 
             <div class="header__logo">
                 <a href="<?php echo site_url(); ?>"><img src="<?php echo get_theme_file_uri('/images/ocean.jpg') ?>" alt="logo Sequip" class="header__logo__img"/></a>
@@ -63,6 +67,10 @@
             // get_top_category(get_query_var('cat'));
 
             // get_top_category(11);
+            // var_dump(is_home());
+            // if(is_category('san-pham')){
+            //     echo 'product';
+            // }
         ?>
 
         

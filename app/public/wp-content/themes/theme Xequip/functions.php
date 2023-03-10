@@ -65,7 +65,7 @@ function get_top_category($cat_ID) {
         foreach($cats as $cat) {
             // print_nice(get_category($cat));
             if (get_category($cat)->parent == $top_catID_first) {
-                print_nice(get_category($cat));
+                // print_nice(get_category($cat));
                 $top_catID_second[] = $cat;  
             }
         }
@@ -328,8 +328,10 @@ function Load_file(){
     // print_nice(is_page('san-pham'));
     // print_nice(check_is_category() ? check_if_subcategory_grandsubcategory(get_category(check_is_category())->cat_ID, get_category_by_slug('san-pham')) : true);
     // print_nice(is_post_type_archive('product'));
-    if(is_page('san-pham') or ((check_is_category() ? check_if_subcategory_grandsubcategory(get_category(check_is_category())->cat_ID, get_category_by_slug('san-pham')) : (is_post_type_archive('product'))))){
-        // echo '----';
+    if(is_page('san-pham') 
+    or ((check_is_category() ? check_if_subcategory_grandsubcategory(get_category(check_is_category())->cat_ID, get_category_by_slug('san-pham')) : (is_post_type_archive('product')))) 
+    or is_singular('product')){
+        // echo 'page-san-pham.js';
         wp_enqueue_script( 'file_javascript', get_theme_file_uri( '/js/page-san-pham.js' ), array('jquery'), '1.0', true ); // load javasccript
         wp_localize_script('file_javascript', "WP_vars", array(
             "root_url" => get_site_url(),

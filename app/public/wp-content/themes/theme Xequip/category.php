@@ -12,7 +12,7 @@
     $current_parent_title = get_the_title($current_parent_id);
 
     $check_isparentpage = !$current_parent_id;
-    
+
     const pagesanpham_clickcategory_one_active = 0;
     const pagesanpham_clickcategory_multiple_active = 1;
 
@@ -40,11 +40,14 @@
                 );
                 if ($categories_sanpham){
                     foreach ($categories_sanpham as $categories_sanpham_child) {
+                        // print_nice($categories_sanpham_child);
                         ?>
-                        <div class="san-pham-body__column_1__Category__item" id="<?php echo $categories_sanpham_child->term_id ?>" 
-                        onclick="_pagesanpham.Click(<?php echo $categories_sanpham_child->term_id ?>, <?php echo pagesanpham_clickcategory_one_active ?>)">
-                        <a href="<?php echo get_category_link($categories_sanpham_child->term_id); ?>"><i class="fas fa-chevron-right"></i>
-                        <?php echo $categories_sanpham_child->name ?></a>
+                        <div class="san-pham-body__column_1__Category__item"
+                        id="<?php echo $categories_sanpham_child->term_id ?>">
+                        <div class="san-pham-body__column_1__Category__item__parent"
+                        onclick="_pagesanpham.Click_showdropdown(<?php echo $categories_sanpham_child->term_id ?>, <?php echo pagesanpham_clickcategory_one_active ?>)">
+                            <i class="fas fa-chevron-right"><?php echo " " . $categories_sanpham_child->name ?></i>
+                        </div>
                         <?php
                         // sub_category
                         $categories_categories_sanpham_child = get_categories(
@@ -53,10 +56,13 @@
                             ));
                         if ($categories_categories_sanpham_child){
                             foreach ($categories_categories_sanpham_child as $categories_categories_sanpham_child_child) {
+                                // print_nice($categories_categories_sanpham_child_child);
                                 ?>
-                                <div class="san-pham-body__column_1__Category__item__item tab__2" id="child_<?php echo $categories_sanpham_child->term_id ?>">
-                                <a href="<?php echo get_category_link($categories_categories_sanpham_child_child->term_id); ?>"><i class="fas fa-chevron-right"></i>
-                                <?php echo $categories_categories_sanpham_child_child->name ?></a></div>
+                                <div class="san-pham-body__column_1__Category__item__child tab__2"
+                                id="child_<?php echo $categories_sanpham_child->term_id ?>">
+                                <a href="<?php echo esc_url(get_category_link($categories_categories_sanpham_child_child->term_id)) ?>">
+                                <i class="fas fa-chevron-right"></i>
+                                <?php echo " " . $categories_categories_sanpham_child_child->name ?></a></div>
                                 <?php
                             }
                         }
@@ -71,15 +77,15 @@
 
     </div>
     <div class="san-pham-body__column_2">
-        
+
         <?php
             $query_post = new WP_Query(array(
                 'post_type'=>'product',
                 'cat' => $cat,
-                'posts_per_page' => -1,
-                'paged' => get_query_var('paged') ? get_query_var('paged') : 1) 
-            ); 
-            
+                'posts_per_page' => 2,
+                'paged' => get_query_var('paged') ? get_query_var('paged') : 1)
+            );
+
             if($query_post->have_posts()){
                 ?>
                 <div class="container_product_item">
@@ -91,7 +97,7 @@
                         <img class="container_product_item__box__icon" src="<?php echo get_theme_file_uri( '/images/slideshow/apples.jpg' ) ?>" alt="test icon" />
                         <h2 class="title title__small title__post-title center container_product_item__box__title"><?php the_title(); ?></h2>
                         </a>
-                        
+
                     </div>
                     <?php
                 }
@@ -117,14 +123,17 @@
                 }
 
                 wp_reset_postdata();
+
+
+                
             } ?>
 
 
     <hr>
     <p><a href="#"> <?php $current_title ?> </a></p>
     <?php
-        
-       
+
+
     ?>
 
     </div>

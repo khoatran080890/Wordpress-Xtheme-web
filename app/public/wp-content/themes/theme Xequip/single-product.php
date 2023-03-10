@@ -33,44 +33,50 @@
         <div class="san-pham-body__column_1__Category">
             <?php
 
-                $categories_sanpham = get_categories(
-                    array(
-                        'parent' => get_category_by_slug('/san-pham')->term_id
-                    )
-                );
-                if ($categories_sanpham){
-                    foreach ($categories_sanpham as $categories_sanpham_child) {
-                        ?>
-                        <div class="san-pham-body__column_1__Category__item" id="<?php echo $categories_sanpham_child->term_id ?>" 
-                        onclick="_pagesanpham.Click(<?php echo $categories_sanpham_child->term_id ?>, <?php echo pagesanpham_clickcategory_one_active ?>)">
-                        <a href="<?php echo get_category_link($categories_sanpham_child->term_id); ?>"><i class="fas fa-chevron-right"></i>
-                        <?php echo $categories_sanpham_child->name ?></a>
-                        <?php
-                        // sub_category
-                        $categories_categories_sanpham_child = get_categories(
-                            array(
-                                'parent' => $categories_sanpham_child->term_id
-                            ));
-                        if ($categories_categories_sanpham_child){
-                            foreach ($categories_categories_sanpham_child as $categories_categories_sanpham_child_child) {
-                                ?>
-                                <div class="san-pham-body__column_1__Category__item__item tab__2" id="child_<?php echo $categories_sanpham_child->term_id ?>">
-                                <a href="<?php echo get_category_link($categories_categories_sanpham_child_child->term_id); ?>"><i class="fas fa-chevron-right"></i>
-                                <?php echo $categories_categories_sanpham_child_child->name ?></a></div>
-                                <?php
-                            }
+            $categories_sanpham = get_categories(
+                array(
+                    'parent' => get_category_by_slug('/san-pham')->term_id
+                )
+            );
+            if ($categories_sanpham){
+                foreach ($categories_sanpham as $categories_sanpham_child) {
+                    // print_nice($categories_sanpham_child);
+                    ?>
+                    <div class="san-pham-body__column_1__Category__item"    
+                    id="<?php echo $categories_sanpham_child->term_id ?>">
+                    <div class="san-pham-body__column_1__Category__item__parent"
+                    onclick="_pagesanpham.Click_showdropdown(<?php echo $categories_sanpham_child->term_id ?>, <?php echo pagesanpham_clickcategory_one_active ?>)">
+                        <i class="fas fa-chevron-right"><?php echo " " . $categories_sanpham_child->name ?></i>
+                    </div>
+                    <?php
+                    // sub_category
+                    $categories_categories_sanpham_child = get_categories(
+                        array(
+                            'parent' => $categories_sanpham_child->term_id
+                        ));
+                    if ($categories_categories_sanpham_child){
+                        foreach ($categories_categories_sanpham_child as $categories_categories_sanpham_child_child) {
+                            // print_nice($categories_categories_sanpham_child_child);
+                            ?>
+                            <div class="san-pham-body__column_1__Category__item__child tab__2" 
+                            id="child_<?php echo $categories_sanpham_child->term_id ?>"
+                            onclick="_pagesanpham.Click_showitem(<?php echo $categories_categories_sanpham_child_child->term_id ?>)">
+                            <i class="fas fa-chevron-right"></i>
+                            <?php echo " " . $categories_categories_sanpham_child_child->name ?></div>
+                            <?php
                         }
-                        ?>
-                        </div>
-                        <?php
                     }
+                    ?>
+                    </div>
+                    <?php
                 }
+            }
 
             ?>
         </div>
 
     </div>
-    <div class="san-pham-body__column_2">
+    <div class="san-pham-body__column_2"  id="content">
         <?php 
         $field_img_1 = get_field('product_icon_1'); 
         $field_img_2 = get_field('product_icon_2'); 
@@ -79,18 +85,21 @@
         $field_img_5 = get_field('product_icon_5'); 
 
         $field_txt_description = get_field('product_description'); 
+        // var_dump($field_img_1);
+        // get_theme_file_uri('/images/support images/emptyy_360x360.jpg')
         ?>
         <div class="block-production-icon-description">
             <div class="product-icon">
                 <div class="product-icon__main">
-                <img class="product-icon__main__child" src="<?php echo $field_img_1['sizes']['img_360x360']; ?>" alt="<?php echo $field_img_1['alt']; ?>" />
+                <img class="product-icon__main__child" 
+                src="<?php echo (($field_img_1 != NULL) ? $field_img_1['sizes']['img_360x360'] : get_theme_file_uri('/images/support images/empty_360x360.jpg')); ?>" alt="<?php echo (($field_img_1 != NULL) ? $field_img_1['alt'] : "empty"); ?>" />
                 </div>
                 <div class="product-icon__sub">
-                <img class="product-icon__sub__child" src="<?php echo $field_img_1['sizes']['img_360x360']; ?>" alt="<?php echo $field_img_1['alt']; ?>" />
-                <img class="product-icon__sub__child" src="<?php echo $field_img_2['sizes']['img_360x360']; ?>" alt="<?php echo $field_img_2['alt']; ?>" />
-                <img class="product-icon__sub__child" src="<?php echo $field_img_3['sizes']['img_360x360']; ?>" alt="<?php echo $field_img_3['alt']; ?>" />
-                <img class="product-icon__sub__child" src="<?php echo $field_img_4['sizes']['img_360x360']; ?>" alt="<?php echo $field_img_4['alt']; ?>" />
-                <img class="product-icon__sub__child" src="<?php echo $field_img_5['sizes']['img_360x360']; ?>" alt="<?php echo $field_img_5['alt']; ?>" />
+                <img class="product-icon__sub__child" src="<?php echo (($field_img_1 != NULL) ? $field_img_1['sizes']['img_360x360'] : get_theme_file_uri('/images/support images/empty_360x360.jpg')); ?>" alt="<?php echo (($field_img_1 != NULL) ? $field_img_1['alt'] : "empty"); ?>" />
+                <img class="product-icon__sub__child" src="<?php echo (($field_img_2 != NULL) ? $field_img_2['sizes']['img_360x360'] : get_theme_file_uri('/images/support images/empty_360x360.jpg')); ?>" alt="<?php echo (($field_img_2 != NULL) ? $field_img_2['alt'] : "empty"); ?>" />
+                <img class="product-icon__sub__child" src="<?php echo (($field_img_3 != NULL) ? $field_img_3['sizes']['img_360x360'] : get_theme_file_uri('/images/support images/empty_360x360.jpg')); ?>" alt="<?php echo (($field_img_3 != NULL) ? $field_img_3['alt'] : "empty"); ?>" />
+                <img class="product-icon__sub__child" src="<?php echo (($field_img_4 != NULL) ? $field_img_4['sizes']['img_360x360'] : get_theme_file_uri('/images/support images/empty_360x360.jpg')); ?>" alt="<?php echo (($field_img_4 != NULL) ? $field_img_4['alt'] : "empty"); ?>" />
+                <img class="product-icon__sub__child" src="<?php echo (($field_img_5 != NULL) ? $field_img_5['sizes']['img_360x360'] : get_theme_file_uri('/images/support images/empty_360x360.jpg')); ?>" alt="<?php echo (($field_img_5 != NULL) ? $field_img_5['alt'] : "empty"); ?>" />
                 </div>
             </div>
             <div class="product-description">
